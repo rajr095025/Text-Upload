@@ -8,12 +8,14 @@ const cors = require("cors");
 // creates new express application
 const app = express();
 
-app.use(cors());
+
 app.use(
   cors({
-    origin: "http://127.0.0.1:3002",
+    origin: '*'
   })
 );
+
+
 
 // making server port 3000 to listen
 app.listen(3000, () => {

@@ -1,48 +1,47 @@
-//var editor = new Quill('.editor');  // First matching element will be used
-
-const { default: Quill } = require("quill");
-
-var container = document.getElementById('editor');
-var editor = new Quill(container);
-
-//var container = $('.editor').get(0);
-//var editor = new Quill(container);
-
-
-// var options = {
-//     debug: 'info',
-//     modules: {
-//       toolbar: '#toolbar'
-//     },
-//     placeholder: 'Compose an epic...',
-//     readOnly: true,
-//     theme: 'snow'
-//   };
-//   var editor = new Quill('#editor', options);
-
-
+var fs = require("fs");
 
 //  get user by email request using fetch() 
+// Another way of initializing quill with options, will get into those later // Let's just get our precious content out.... 
+// var quill = new Quill('#editor', { theme: 'snow' });
+
+
+function writeFile(fileName, data){
+  fs.writeFile(
+    `./html-files/${fileName}.html`,
+    `${data}`,
+    function (err) {
+      if (err) {
+      return console.error(err);
+      }
+    
+      // If no error the remaining code executes
+      console.log(" Finished writing ");
+      console.log("Reading the data that's written");
+    
+      // Reading the file
+      fs.readFile(`./${fileName}.html`, function (err, data) {
+      if (err) {
+        return console.error(err);
+      }
+      console.log("Data read : " + data.toString());
+      });
+    }
+    );
+}
 
 let dataForm = document.getElementById("data-form");
-const userId = document.getElementById("user-id");
-const data = document.getElementById("data");
-var delt = quill.getContents();
-var length = quill.getLength();
-var text = quill.getText(0, 10);
  dataForm.addEventListener("submit", (e) => {
    e.preventDefault();
-   console.log("button clicked");
-   console.log(delt);
-   console.log(length);
-   console.log(userId.value);
-  //  console.log(data.value);
-  //  let inputValue = getUserEmail.value;
+   let user = document.getElementById("user-id");
+   let userId = user.value;
+   console.log(userId);
+   let data = quill.root.innerHTML;
+   writeFile(userId,data);
    fetch(`http://localhost:3000/user/`, {
             method: 'POST',
             body: JSON.stringify({
-              user_id : `${userId.value}`,
-              data : `${text}`
+              user_id : `${userId}`,
+              data : `${content}`
             }),
             headers: {
               'Content-type': 'application/json; charset=UTF-8',
@@ -55,14 +54,19 @@ var text = quill.getText(0, 10);
               console.log(json.message);
               // updateMessage.innerHTML = `<p>${json.message}<p>`;
             });
-  //  fetch(`http://localhost:3000/user/`)
-  //   // Converting received data to JSON
-  //   .then((response) => response.json())
-  //   .then((json) => {
-  //     // Create a variable to store HTML
-  //       userid = json[0]._id;
-  //       console.log(userid);
-  //       updateUser(userid);
-  //       console.log(`userid ${userid} was printed`)
-  //     });
+
  });
+
+
+ 
+            
+    fetch(`http://localhost:3000/user/`)
+     // Converting received data to JSON
+     .then((response) => response.json())
+     .then((json) => {
+       // Create a variable to store HTML
+         userid = json[0]._id;
+         console.log(userid);
+         updateUser(userid);
+         console.log(`userid ${userid} was printed`)
+       });

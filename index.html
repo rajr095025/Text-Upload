@@ -84,7 +84,20 @@
           theme: 'snow'
         });
       </script>
+<!-- <script>
+  var fileName = "myfile.txt";
+  var fileContent =quill.root.innerHTML;
+  var myFile = new Blob([fileContent], {type: 'text/plain'});
+  
+  window.URL = window.URL || window.webkitURL;
+  var dlBtn = document.getElementById("download");
+  
+  dlBtn.setAttribute("href", window.URL.createObjectURL(myFile));
+  dlBtn.setAttribute("download", fileName);
+  console.log(dlBtn);
 
+  </script> -->
+      <script  src="./main.js"></script>
       <!-- Main Quill library -->
       <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
       <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
@@ -96,6 +109,6 @@
       <!-- Core build with no theme, formatting, non-essential modules -->
       <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
       <script src="//cdn.quilljs.com/1.3.6/quill.core.js"></script>
-      <script src="./main.js"></script>
+      
 </body>
 </html>
