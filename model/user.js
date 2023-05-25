@@ -10,6 +10,7 @@ var schema = new mongoose.Schema({
         type: String,
         default: ''
     },
+    
 });
         
 var user = new mongoose.model('User', schema);

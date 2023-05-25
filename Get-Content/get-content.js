@@ -22,7 +22,7 @@ const getContentId = document.getElementById("get-content-id");
  // get content by id 
 const getUserDetails = document.getElementById("get-content-details");
 function getUser(inputValue) {
-    fetch(`http://localhost:3000/user/${inputValue}`)
+    fetch(`http://localhost:3000/user/mongid/${inputValue}`)
       // Converting received data to JSON
       .then((response) => response.json())
       .then((json) => {
