@@ -5,6 +5,7 @@ const dbConfig = require("./config/config.js");
 const UserRoute = require("./routes/user.js");
 const cors = require("cors");
 
+
 // creates new express application
 const app = express();
 

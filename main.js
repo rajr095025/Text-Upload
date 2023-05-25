@@ -1,8 +1,8 @@
-var fs = require("fs");
+//var fs = require("fs");
 
 //  get user by email request using fetch() 
 // Another way of initializing quill with options, will get into those later // Let's just get our precious content out.... 
-// var quill = new Quill('#editor', { theme: 'snow' });
+var quill = new Quill('#editor', { theme: 'snow' });
 
 
 function writeFile(fileName, data){
@@ -36,12 +36,11 @@ let dataForm = document.getElementById("data-form");
    let userId = user.value;
    console.log(userId);
    let data = quill.root.innerHTML;
-   writeFile(userId,data);
    fetch(`http://localhost:3000/user/`, {
             method: 'POST',
             body: JSON.stringify({
               user_id : `${userId}`,
-              data : `${content}`
+              data : `${data}`
             }),
             headers: {
               'Content-type': 'application/json; charset=UTF-8',
@@ -57,16 +56,3 @@ let dataForm = document.getElementById("data-form");
 
  });
 
-
- 
-            
-    fetch(`http://localhost:3000/user/`)
-     // Converting received data to JSON
-     .then((response) => response.json())
-     .then((json) => {
-       // Create a variable to store HTML
-         userid = json[0]._id;
-         console.log(userid);
-         updateUser(userid);
-         console.log(`userid ${userid} was printed`)
-       });

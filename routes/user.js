@@ -12,5 +12,9 @@ const router = express.Router();
 
 router.post('/', UserController.create);
 router.get('/', UserController.findAll);
+router.get('/user_id/:user_id', UserController.findOneContent);
+router.get('/:id', UserController.findOne);
+
+router.get('/html-file/', UserController.findAllHtml);
 
 module.exports = router

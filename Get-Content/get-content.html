@@ -20,20 +20,20 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Home
+            <a class="nav-link active" href="../index.html">Home
               <span class="visually-hidden">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="../list/list.html">List</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" href="#">Update</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="../Get-Content/get-content.html">Get-Content</a>
           </li>
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Action</a>
@@ -42,7 +42,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Separated link</a>
             </div>
-          </li>
+          </li> -->
         </ul>
         <form class="d-flex">
           <input class="form-control me-sm-2" type="search" placeholder="Search">
@@ -52,17 +52,28 @@
     </div>
   </nav>
   <div>
-    <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">S.No</th>
-            <th scope="col">ID's</th>
-          </tr>
-        </thead>
-        <tbody id="users">
-          
-        </tbody>
-      </table>
+    <div style="margin-top: 150px; margin-bottom: 150px; display: flex; flex-direction: column ; align-items: center; justify-content: center; ">
+        <div style="margin-top: 50px;">
+            <h1 style="text-align: center;">Get-Content</h1>
+        </div>
+        <div style="width: 30%; ">
+          <form id="get-content-form">
+            <fieldset>
+              <div class="form-group">
+                <label for="email" class="form-label mt-4">Content ID</label>
+                <input type="text" name="email" class="form-control" id="get-content-id" aria-describedby="emailHelp" placeholder="Enter id">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your id or content with anyone else.</small>
+              </div>
+              <div style="display: flex; justify-content: center; margin-bottom: 50px;">
+                <button type="submit" id="get-button" class="btn btn-primary" style="margin-top: 20px;">Submit</button>
+              </div>
+              <div id="get-content-details" style="display: flex; justify-content: center;">
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
   </div>
+  <script src="./get-content.js"></script>
 </body>
 </html>
